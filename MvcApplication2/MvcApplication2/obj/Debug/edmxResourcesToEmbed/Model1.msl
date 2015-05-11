@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db254614719227434d8463a494003807b5ModelStoreContainer" CdmEntityContainer="db254614719227434d8463a494003807b5Entities">
+    <EntitySetMapping Name="CASHIERs">
+      <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.CASHIER">
+        <MappingFragment StoreEntitySet="CASHIER">
+          <ScalarProperty Name="CashierId" ColumnName="CashierId" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="DateOfEmployment" ColumnName="DateOfEmployment" />
+          <ScalarProperty Name="HourlyPay" ColumnName="HourlyPay" />
+          <ScalarProperty Name="NumberOfYearsEmployed" ColumnName="NumberOfYearsEmployed" />
+          <ScalarProperty Name="FMName" ColumnName="FMName" />
+          <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTODIANs">
+      <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.CUSTODIAN">
+        <MappingFragment StoreEntitySet="CUSTODIAN">
+          <ScalarProperty Name="CustodianId" ColumnName="CustodianId" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="DateOfEmployment" ColumnName="DateOfEmployment" />
+          <ScalarProperty Name="HourlyPay" ColumnName="HourlyPay" />
+          <ScalarProperty Name="NumberOfYearsEmployed" ColumnName="NumberOfYearsEmployed" />
+          <ScalarProperty Name="FMName" ColumnName="FMName" />
+          <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMERs">
+      <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.CUSTOMER">
+        <MappingFragment StoreEntitySet="CUSTOMER">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="AccountBalance" ColumnName="AccountBalance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTMENTs">
+      <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.DEPARTMENT">
+        <MappingFragment StoreEntitySet="DEPARTMENT">
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FARMERs">
+      <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.FARMER">
+        <MappingFragment StoreEntitySet="FARMER">
+          <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FARMERS_MARKET">
+      <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.FARMERS_MARKET">
+        <MappingFragment StoreEntitySet="FARMERS_MARKET">
+          <ScalarProperty Name="FMName" ColumnName="FMName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Hours" ColumnName="Hours" />
+          <ScalarProperty Name="NumberOfSuppliers" ColumnName="NumberOfSuppliers" />
+          <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GOODs">
+      <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.GOOD">
+        <MappingFragment StoreEntitySet="GOOD">
+          <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROPIETORs">
+      <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.PROPIETOR">
+        <MappingFragment StoreEntitySet="PROPIETOR">
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SALES_ASSOCIATE">
+      <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.SALES_ASSOCIATE">
+        <MappingFragment StoreEntitySet="SALES_ASSOCIATE">
+          <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="DateOfEmployment" ColumnName="DateOfEmployment" />
+          <ScalarProperty Name="HourlyPay" ColumnName="HourlyPay" />
+          <ScalarProperty Name="NumberOfYearsEmployed" ColumnName="NumberOfYearsEmployed" />
+          <ScalarProperty Name="FMName" ColumnName="FMName" />
+          <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STOCKs">
+      <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.STOCK">
+        <MappingFragment StoreEntitySet="STOCK">
+          <ScalarProperty Name="StockId" ColumnName="StockId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="BUYS" TypeName="db254614719227434d8463a494003807b5Model.BUYS" StoreEntitySet="BUYS">
+      <EndProperty Name="CUSTOMER">
+        <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+      </EndProperty>
+      <EndProperty Name="STOCK">
+        <ScalarProperty Name="StockId" ColumnName="StockId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CHECKS_OUT" TypeName="db254614719227434d8463a494003807b5Model.CHECKS_OUT" StoreEntitySet="CHECKS_OUT">
+      <EndProperty Name="CASHIER">
+        <ScalarProperty Name="CashierId" ColumnName="CashierId" />
+      </EndProperty>
+      <EndProperty Name="CUSTOMER">
+        <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CLEANS" TypeName="db254614719227434d8463a494003807b5Model.CLEANS" StoreEntitySet="CLEANS">
+      <EndProperty Name="CUSTODIAN">
+        <ScalarProperty Name="CustodianId" ColumnName="CustodianId" />
+      </EndProperty>
+      <EndProperty Name="DEPARTMENT">
+        <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="HARVESTS" TypeName="db254614719227434d8463a494003807b5Model.HARVESTS" StoreEntitySet="HARVESTS">
+      <EndProperty Name="FARMER">
+        <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+      </EndProperty>
+      <EndProperty Name="GOOD">
+        <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="RETURNS" TypeName="db254614719227434d8463a494003807b5Model.RETURNS" StoreEntitySet="RETURNS">
+      <EndProperty Name="CUSTOMER">
+        <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+      </EndProperty>
+      <EndProperty Name="STOCK">
+        <ScalarProperty Name="StockId" ColumnName="StockId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SELLS" TypeName="db254614719227434d8463a494003807b5Model.SELLS" StoreEntitySet="SELLS">
+      <EndProperty Name="FARMERS_MARKET">
+        <ScalarProperty Name="FMName" ColumnName="FMName" />
+      </EndProperty>
+      <EndProperty Name="STOCK">
+        <ScalarProperty Name="StockId" ColumnName="StockId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SELLS_TO" TypeName="db254614719227434d8463a494003807b5Model.SELLS_TO" StoreEntitySet="SELLS_TO">
+      <EndProperty Name="FARMER">
+        <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+      </EndProperty>
+      <EndProperty Name="FARMERS_MARKET">
+        <ScalarProperty Name="FMName" ColumnName="FMName" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SHOPS_AT" TypeName="db254614719227434d8463a494003807b5Model.SHOPS_AT" StoreEntitySet="SHOPS_AT">
+      <EndProperty Name="CUSTOMER">
+        <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+      </EndProperty>
+      <EndProperty Name="FARMERS_MARKET">
+        <ScalarProperty Name="FMName" ColumnName="FMName" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

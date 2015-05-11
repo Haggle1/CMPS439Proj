@@ -1,0 +1,50 @@
+﻿@model MvcApplication2.FARMERS_MARKET
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>FARMERS_MARKET</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FMName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FMName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Hours)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hours)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumberOfSuppliers)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumberOfSuppliers)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PROPIETOR.FName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PROPIETOR.FName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id=Model.FMName  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

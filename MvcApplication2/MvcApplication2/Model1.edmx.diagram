@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b9df06425414483aaf1b6c03dfe13c02" Name="Diagram1">
+        <EntityTypeShape EntityType="db254614719227434d8463a494003807b5Model.CASHIER" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db254614719227434d8463a494003807b5Model.CUSTODIAN" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db254614719227434d8463a494003807b5Model.CUSTOMER" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db254614719227434d8463a494003807b5Model.DEPARTMENT" Width="1.5" PointX="15" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db254614719227434d8463a494003807b5Model.FARMER" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db254614719227434d8463a494003807b5Model.FARMERS_MARKET" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db254614719227434d8463a494003807b5Model.GOOD" Width="1.5" PointX="17.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db254614719227434d8463a494003807b5Model.PROPIETOR" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db254614719227434d8463a494003807b5Model.SALES_ASSOCIATE" Width="1.5" PointX="9.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="db254614719227434d8463a494003807b5Model.STOCK" Width="1.5" PointX="9.75" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.fk_CASHIER_FARMERS__MARKET1" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.fk_CASHIER_PROPIETOR1" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.fk_CUSTODIAN_FARMERS__MARKET1" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.fk_CUSTODIAN_PROPIETOR1" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.fk_GOOD_DEPARTMENT1" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.fk_FARMERS__MARKET_PROPIETOR1" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.fk_SALES_ASSOCIATE_FARMERS__MARKET1" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.fk_SALES_ASSOCIATE_PROPIETOR1" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.BUYS" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.CHECKS_OUT" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.CLEANS" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.HARVESTS" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.RETURNS" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.SELLS" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.SELLS_TO" ManuallyRouted="false" />
+        <AssociationConnector Association="db254614719227434d8463a494003807b5Model.SHOPS_AT" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,238 @@
+﻿@*<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("your logo here", "Index", "Home")</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>*@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - The Farmers' Haven | Home</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.6/css/jquery.dataTables.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/bootstrap.js")
+
+    <!-- Local style only for demo purpose -->
+    <style>
+        .directive-list {
+            list-style: none;
+        }
+
+            .directive-list li {
+                background: #f3f3f4;
+                padding: 10px 20px;
+                margin: 4px;
+            }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+       
+            @*@if (User.IsInRole("Admin") || User.IsInRole("Employee"))
+                {*@
+            <nav class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="nav-header">
+                            <div class="dropdown profile-element">
+
+                                <span>
+                                    <img alt="image" class="img-circle" src="~/img/images-7.jpeg" />
+                                </span>
+                                <span style="color: white; font-size: 16px; font-weight: bold">
+                                    The Farmers' Haven
+                                </span>
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#" id="dLabel"></a>
+                                <span class="clear">
+                                    <span class="block m-t-xs" style="color: white;">
+                                        <strong class="font-bold">@User.Identity.Name</strong>
+                                    </span>
+
+                                </span>
+
+                            </div>
+
+                            <div class="logo-element">
+                                HAVEN
+                            </div>
+                        </li>
+                        
+                            <li>
+                                <a href="@Url.Action("Index", "Farmers_Market")"><i class="fa fa-user"></i> <span class="nav-label">Farmers' Markets</span> <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="@Url.Action("Index", "Farmers_Market")"><i class="fa fa-users"></i>Famers' Markets</a></li>
+                                    <li><a href="@Url.Action("Create", "Farmers_Market")"><i class="fa fa-user-plus"></i>Create Farmers' Market</a></li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="@Url.Action("Index", "Cashier")"><i class="fa fa-usd"></i> <span class="nav-label">Employees</span> <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="@Url.Action("Index", "Cashier")"><i class="fa fa-money"></i>All Cashiers</a></li>
+                                    <li><a href="@Url.Action("Create", "Cashier")"><i class="fa fa-plus"></i>Add Cashier</a></li>
+                                    <li><a href="@Url.Action("Index", "Sales_Associate")"><i class="fa fa-credit-card"></i>All Sales Associates</a></li>
+                                    <li><a href="@Url.Action("Create", "Sales_Associate")"><i class="fa fa-plus"></i>Create Sales Associate</a></li>
+                                    <li><a href="@Url.Action("Index", "Custodian")"><i class="fa fa-paint-brush"></i>All Custodians</a></li>
+                                    <li><a href="@Url.Action("Create", "Custodian")"><i class="fa fa-plus"></i>Create Custodian</a></li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Good")"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Goods</span> <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="@Url.Action("Index", "Good")"><i class="fa fa-shopping-cart"></i>All Goods</a></li>
+                                    <li><a href="@Url.Action("Create", "Good")"><i class="fa fa-cart-plus"></i>Create Good</a></li>
+
+                                </ul>
+                            </li>
+                        <li>
+                            <a href="@Url.Action("Index", "Stock")"><i class="fa fa-shopping-cart"></i> <span class="nav-label">Stock</span> <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="@Url.Action("Index", "Stock")"><i class="fa fa-shopping-cart"></i>All Stock</a></li>
+                                <li><a href="@Url.Action("Create", "Stock")"><i class="fa fa-plus"></i>Create Stock</a></li>
+
+                            </ul>
+                        </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Farmer")"><i class="fa fa-recycle"></i> <span class="nav-label">Farmers</span> <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="@Url.Action("Index", "Farmer")"><i class="fa fa-recycle"></i>All Farmers</a></li>
+                                    <li><a href="@Url.Action("Create", "Farmer")"><i class="fa fa-plus"></i>Create Farmer</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="landing_link">
+                                <a href="@Url.Action("Index", "Department")"><i class="fa fa-tag"></i> <span class="nav-label">Departments</span> <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="@Url.Action("Index", "Departments")"><i class="fa fa-tags"></i>All Departments</a></li>
+                                    <li><a href="@Url.Action("Create", "Departments")"><i class="fa fa-plus"></i>Create Department</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="special_link">
+                                <a href="@Url.Action("Index", "Proprietor")"><i class="fa fa-th-large"></i> <span class="nav-label">Proprietors</span> <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="@Url.Action("Index", "Proprietor")"><i class="fa fa-th"></i>All Proprietors</a></li>
+                                    <li><a href="@Url.Action("Create", "Proprietor")"><i class="fa fa-plus"></i>Create Proprietor</a></li>
+
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Customer")"><i class="fa fa-line-chart"></i> <span class="nav-label">Customers</span> <span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="@Url.Action("Index", "Customer")"><i class="fa fa-pie-chart"></i>All Customers</a></li>
+                                    <li><a href="@Url.Action("Create", "Customer")"><i class="fa fa-plus"></i>Create Customer</a></li>
+
+                                </ul>
+                            </li>
+                       
+                          
+                        
+
+                    </ul>
+                </div>
+            </nav>
+  
+       
+  
+            <div id="page-wrapper" class="gray-bg">
+                <div class="row border-bottom">
+
+                    <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                        <div class="navbar-header">
+                            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#" style="position:static"><i class="fa fa-bars"></i> </a>
+
+                        </div>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <span class="m-r-sm text-muted welcome-message">Welcome to Farmers' Haven</span>
+                            </li>
+
+
+
+
+                            <li>
+                               
+
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+
+                <div class="wrapper wrapper-content animated fadeInRight">
+
+                    @RenderBody()
+                </div>
+                <div class="footer">
+
+                    <div>
+                        <strong>Copyright</strong> Dustin Williams & Cara Tunstall &copy; 2014-2015
+                    </div>
+                </div>
+            </div>
+        
+
+    </div>
+    <!-- Mainly scripts -->
+    <script src="~/js/jquery-2.1.1.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
+    <script src="~/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="~/js/inspinia.js"></script>
+    <script src="~/js/plugins/pace/pace.min.js"></script>
+    @RenderSection("datatables", required: false)
+    @RenderSection("scripts", required: false)
+    @RenderSection("datepicker", required: false)
+
+</body>
+</html>

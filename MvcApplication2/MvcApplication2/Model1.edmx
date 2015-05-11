@@ -1,0 +1,1120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db254614719227434d8463a494003807b5Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BUYS">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="StockId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="StockId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CASHIER">
+          <Key>
+            <PropertyRef Name="CashierId" />
+          </Key>
+          <Property Name="CashierId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FName" Type="char" MaxLength="20" />
+          <Property Name="LName" Type="char" MaxLength="20" />
+          <Property Name="DateOfEmployment" Type="date" />
+          <Property Name="HourlyPay" Type="double" />
+          <Property Name="NumberOfYearsEmployed" Type="int" />
+          <Property Name="FMName" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="ProprietorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHECKS_OUT">
+          <Key>
+            <PropertyRef Name="CashierId" />
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CashierId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLEANS">
+          <Key>
+            <PropertyRef Name="CustodianId" />
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="CustodianId" Type="int" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTODIAN">
+          <Key>
+            <PropertyRef Name="CustodianId" />
+          </Key>
+          <Property Name="CustodianId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FName" Type="char" MaxLength="20" />
+          <Property Name="LName" Type="char" MaxLength="20" />
+          <Property Name="DateOfEmployment" Type="date" />
+          <Property Name="HourlyPay" Type="double" />
+          <Property Name="NumberOfYearsEmployed" Type="int" />
+          <Property Name="FMName" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="ProprietorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FName" Type="char" MaxLength="20" />
+          <Property Name="LName" Type="char" MaxLength="20" />
+          <Property Name="AccountBalance" Type="int" />
+        </EntityType>
+        <EntityType Name="DEPARTMENT">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="char" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="FARMER">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FName" Type="char" MaxLength="20" />
+          <Property Name="LName" Type="char" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="FARMERS_MARKET">
+          <Key>
+            <PropertyRef Name="FMName" />
+          </Key>
+          <Property Name="FMName" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="char" MaxLength="200" />
+          <Property Name="Hours" Type="char" MaxLength="40" />
+          <Property Name="NumberOfSuppliers" Type="int" Nullable="false" />
+          <Property Name="ProprietorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GOOD">
+          <Key>
+            <PropertyRef Name="GoodId" />
+          </Key>
+          <Property Name="GoodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="char" MaxLength="20" />
+          <Property Name="Name" Type="char" MaxLength="20" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="DepartmentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HARVESTS">
+          <Key>
+            <PropertyRef Name="VendorId" />
+            <PropertyRef Name="GoodId" />
+          </Key>
+          <Property Name="VendorId" Type="int" Nullable="false" />
+          <Property Name="GoodId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROPIETOR">
+          <Key>
+            <PropertyRef Name="ProprietorId" />
+          </Key>
+          <Property Name="FName" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="LName" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="ProprietorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RETURNS">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="StockId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="StockId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SALES_ASSOCIATE">
+          <Key>
+            <PropertyRef Name="SalesId" />
+          </Key>
+          <Property Name="SalesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FName" Type="char" MaxLength="20" />
+          <Property Name="LName" Type="char" MaxLength="20" />
+          <Property Name="DateOfEmployment" Type="date" />
+          <Property Name="HourlyPay" Type="double" />
+          <Property Name="NumberOfYearsEmployed" Type="int" />
+          <Property Name="FMName" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="ProprietorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SELLS">
+          <Key>
+            <PropertyRef Name="StockId" />
+            <PropertyRef Name="FMName" />
+          </Key>
+          <Property Name="StockId" Type="int" Nullable="false" />
+          <Property Name="FMName" Type="char" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SELLS_TO">
+          <Key>
+            <PropertyRef Name="VendorId" />
+            <PropertyRef Name="FMName" />
+          </Key>
+          <Property Name="VendorId" Type="int" Nullable="false" />
+          <Property Name="FMName" Type="char" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SHOPS_AT">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="FMName" />
+          </Key>
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="FMName" Type="char" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STOCK">
+          <Key>
+            <PropertyRef Name="StockId" />
+          </Key>
+          <Property Name="StockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="char" MaxLength="20" />
+          <Property Name="Name" Type="char" MaxLength="20" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <Association Name="fk_CASHIER_FARMERS'_MARKET1">
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="1" />
+          <End Role="CASHIER" Type="Self.CASHIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FARMERS_MARKET">
+              <PropertyRef Name="FMName" />
+            </Principal>
+            <Dependent Role="CASHIER">
+              <PropertyRef Name="FMName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CASHIER_has_CUSTOMER_CASHIER1">
+          <End Role="CASHIER" Type="Self.CASHIER" Multiplicity="1" />
+          <End Role="CHECKS_OUT" Type="Self.CHECKS_OUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CASHIER">
+              <PropertyRef Name="CashierId" />
+            </Principal>
+            <Dependent Role="CHECKS_OUT">
+              <PropertyRef Name="CashierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CASHIER_has_CUSTOMER_CUSTOMER1">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="CHECKS_OUT" Type="Self.CHECKS_OUT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="CHECKS_OUT">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CASHIER_PROPIETOR1">
+          <End Role="PROPIETOR" Type="Self.PROPIETOR" Multiplicity="1" />
+          <End Role="CASHIER" Type="Self.CASHIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPIETOR">
+              <PropertyRef Name="ProprietorId" />
+            </Principal>
+            <Dependent Role="CASHIER">
+              <PropertyRef Name="ProprietorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTODIAN_FARMERS'_MARKET1">
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="1" />
+          <End Role="CUSTODIAN" Type="Self.CUSTODIAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FARMERS_MARKET">
+              <PropertyRef Name="FMName" />
+            </Principal>
+            <Dependent Role="CUSTODIAN">
+              <PropertyRef Name="FMName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTODIAN_has_DEPARTMENT_CUSTODIAN1">
+          <End Role="CUSTODIAN" Type="Self.CUSTODIAN" Multiplicity="1" />
+          <End Role="CLEANS" Type="Self.CLEANS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTODIAN">
+              <PropertyRef Name="CustodianId" />
+            </Principal>
+            <Dependent Role="CLEANS">
+              <PropertyRef Name="CustodianId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTODIAN_has_DEPARTMENT_DEPARTMENT1">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1" />
+          <End Role="CLEANS" Type="Self.CLEANS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="CLEANS">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTODIAN_PROPIETOR1">
+          <End Role="PROPIETOR" Type="Self.PROPIETOR" Multiplicity="1" />
+          <End Role="CUSTODIAN" Type="Self.CUSTODIAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPIETOR">
+              <PropertyRef Name="ProprietorId" />
+            </Principal>
+            <Dependent Role="CUSTODIAN">
+              <PropertyRef Name="ProprietorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTOMER_has_FARMERS'_MARKET_CUSTOMER1">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="SHOPS_AT" Type="Self.SHOPS_AT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="SHOPS_AT">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTOMER_has_FARMERS'_MARKET_FARMERS'_MARKET1">
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="1" />
+          <End Role="SHOPS_AT" Type="Self.SHOPS_AT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FARMERS_MARKET">
+              <PropertyRef Name="FMName" />
+            </Principal>
+            <Dependent Role="SHOPS_AT">
+              <PropertyRef Name="FMName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTOMER_has_STOCK_CUSTOMER1">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="BUYS" Type="Self.BUYS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="BUYS">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTOMER_has_STOCK_CUSTOMER2">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="1" />
+          <End Role="RETURNS" Type="Self.RETURNS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="RETURNS">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTOMER_has_STOCK_STOCK1">
+          <End Role="STOCK" Type="Self.STOCK" Multiplicity="1" />
+          <End Role="BUYS" Type="Self.BUYS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOCK">
+              <PropertyRef Name="StockId" />
+            </Principal>
+            <Dependent Role="BUYS">
+              <PropertyRef Name="StockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTOMER_has_STOCK_STOCK2">
+          <End Role="STOCK" Type="Self.STOCK" Multiplicity="1" />
+          <End Role="RETURNS" Type="Self.RETURNS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOCK">
+              <PropertyRef Name="StockId" />
+            </Principal>
+            <Dependent Role="RETURNS">
+              <PropertyRef Name="StockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FARMER_has_FARMERS'_MARKET_FARMER1">
+          <End Role="FARMER" Type="Self.FARMER" Multiplicity="1" />
+          <End Role="SELLS_TO" Type="Self.SELLS_TO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FARMER">
+              <PropertyRef Name="VendorId" />
+            </Principal>
+            <Dependent Role="SELLS_TO">
+              <PropertyRef Name="VendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FARMER_has_FARMERS'_MARKET_FARMERS'_MARKET1">
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="1" />
+          <End Role="SELLS_TO" Type="Self.SELLS_TO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FARMERS_MARKET">
+              <PropertyRef Name="FMName" />
+            </Principal>
+            <Dependent Role="SELLS_TO">
+              <PropertyRef Name="FMName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FARMER_has_GOOD_FARMER1">
+          <End Role="FARMER" Type="Self.FARMER" Multiplicity="1" />
+          <End Role="HARVESTS" Type="Self.HARVESTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FARMER">
+              <PropertyRef Name="VendorId" />
+            </Principal>
+            <Dependent Role="HARVESTS">
+              <PropertyRef Name="VendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FARMER_has_GOOD_GOOD1">
+          <End Role="GOOD" Type="Self.GOOD" Multiplicity="1" />
+          <End Role="HARVESTS" Type="Self.HARVESTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GOOD">
+              <PropertyRef Name="GoodId" />
+            </Principal>
+            <Dependent Role="HARVESTS">
+              <PropertyRef Name="GoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FARMERS'_MARKET_PROPIETOR1">
+          <End Role="PROPIETOR" Type="Self.PROPIETOR" Multiplicity="1" />
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPIETOR">
+              <PropertyRef Name="ProprietorId" />
+            </Principal>
+            <Dependent Role="FARMERS_MARKET">
+              <PropertyRef Name="ProprietorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_GOOD_DEPARTMENT1">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1" />
+          <End Role="GOOD" Type="Self.GOOD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="GOOD">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SALES_ASSOCIATE_FARMERS'_MARKET1">
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="1" />
+          <End Role="SALES_ASSOCIATE" Type="Self.SALES_ASSOCIATE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FARMERS_MARKET">
+              <PropertyRef Name="FMName" />
+            </Principal>
+            <Dependent Role="SALES_ASSOCIATE">
+              <PropertyRef Name="FMName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SALES_ASSOCIATE_PROPIETOR1">
+          <End Role="PROPIETOR" Type="Self.PROPIETOR" Multiplicity="1" />
+          <End Role="SALES_ASSOCIATE" Type="Self.SALES_ASSOCIATE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPIETOR">
+              <PropertyRef Name="ProprietorId" />
+            </Principal>
+            <Dependent Role="SALES_ASSOCIATE">
+              <PropertyRef Name="ProprietorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_STOCK_has_FARMERS'_MARKET_FARMERS'_MARKET1">
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="1" />
+          <End Role="SELLS" Type="Self.SELLS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FARMERS_MARKET">
+              <PropertyRef Name="FMName" />
+            </Principal>
+            <Dependent Role="SELLS">
+              <PropertyRef Name="FMName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_STOCK_has_FARMERS'_MARKET_STOCK1">
+          <End Role="STOCK" Type="Self.STOCK" Multiplicity="1" />
+          <End Role="SELLS" Type="Self.SELLS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STOCK">
+              <PropertyRef Name="StockId" />
+            </Principal>
+            <Dependent Role="SELLS">
+              <PropertyRef Name="StockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db254614719227434d8463a494003807b5ModelStoreContainer">
+          <EntitySet Name="BUYS" EntityType="Self.BUYS" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="CASHIER" EntityType="Self.CASHIER" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="CHECKS_OUT" EntityType="Self.CHECKS_OUT" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="CLEANS" EntityType="Self.CLEANS" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="CUSTODIAN" EntityType="Self.CUSTODIAN" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="DEPARTMENT" EntityType="Self.DEPARTMENT" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="FARMER" EntityType="Self.FARMER" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="FARMERS_MARKET" EntityType="Self.FARMERS_MARKET" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="GOOD" EntityType="Self.GOOD" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="HARVESTS" EntityType="Self.HARVESTS" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="PROPIETOR" EntityType="Self.PROPIETOR" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="RETURNS" EntityType="Self.RETURNS" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="SALES_ASSOCIATE" EntityType="Self.SALES_ASSOCIATE" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="SELLS" EntityType="Self.SELLS" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="SELLS_TO" EntityType="Self.SELLS_TO" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="SHOPS_AT" EntityType="Self.SHOPS_AT" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <EntitySet Name="STOCK" EntityType="Self.STOCK" Schema="db254614719227434d8463a494003807b5" store:Type="Tables" />
+          <AssociationSet Name="fk_CASHIER_FARMERS'_MARKET1" Association="Self.fk_CASHIER_FARMERS'_MARKET1">
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+            <End Role="CASHIER" EntitySet="CASHIER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CASHIER_has_CUSTOMER_CASHIER1" Association="Self.fk_CASHIER_has_CUSTOMER_CASHIER1">
+            <End Role="CASHIER" EntitySet="CASHIER" />
+            <End Role="CHECKS_OUT" EntitySet="CHECKS_OUT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CASHIER_has_CUSTOMER_CUSTOMER1" Association="Self.fk_CASHIER_has_CUSTOMER_CUSTOMER1">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="CHECKS_OUT" EntitySet="CHECKS_OUT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CASHIER_PROPIETOR1" Association="Self.fk_CASHIER_PROPIETOR1">
+            <End Role="PROPIETOR" EntitySet="PROPIETOR" />
+            <End Role="CASHIER" EntitySet="CASHIER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTODIAN_FARMERS'_MARKET1" Association="Self.fk_CUSTODIAN_FARMERS'_MARKET1">
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+            <End Role="CUSTODIAN" EntitySet="CUSTODIAN" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTODIAN_has_DEPARTMENT_CUSTODIAN1" Association="Self.fk_CUSTODIAN_has_DEPARTMENT_CUSTODIAN1">
+            <End Role="CUSTODIAN" EntitySet="CUSTODIAN" />
+            <End Role="CLEANS" EntitySet="CLEANS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTODIAN_has_DEPARTMENT_DEPARTMENT1" Association="Self.fk_CUSTODIAN_has_DEPARTMENT_DEPARTMENT1">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="CLEANS" EntitySet="CLEANS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTODIAN_PROPIETOR1" Association="Self.fk_CUSTODIAN_PROPIETOR1">
+            <End Role="PROPIETOR" EntitySet="PROPIETOR" />
+            <End Role="CUSTODIAN" EntitySet="CUSTODIAN" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTOMER_has_FARMERS'_MARKET_CUSTOMER1" Association="Self.fk_CUSTOMER_has_FARMERS'_MARKET_CUSTOMER1">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="SHOPS_AT" EntitySet="SHOPS_AT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTOMER_has_FARMERS'_MARKET_FARMERS'_MARKET1" Association="Self.fk_CUSTOMER_has_FARMERS'_MARKET_FARMERS'_MARKET1">
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+            <End Role="SHOPS_AT" EntitySet="SHOPS_AT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTOMER_has_STOCK_CUSTOMER1" Association="Self.fk_CUSTOMER_has_STOCK_CUSTOMER1">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="BUYS" EntitySet="BUYS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTOMER_has_STOCK_CUSTOMER2" Association="Self.fk_CUSTOMER_has_STOCK_CUSTOMER2">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="RETURNS" EntitySet="RETURNS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTOMER_has_STOCK_STOCK1" Association="Self.fk_CUSTOMER_has_STOCK_STOCK1">
+            <End Role="STOCK" EntitySet="STOCK" />
+            <End Role="BUYS" EntitySet="BUYS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTOMER_has_STOCK_STOCK2" Association="Self.fk_CUSTOMER_has_STOCK_STOCK2">
+            <End Role="STOCK" EntitySet="STOCK" />
+            <End Role="RETURNS" EntitySet="RETURNS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FARMER_has_FARMERS'_MARKET_FARMER1" Association="Self.fk_FARMER_has_FARMERS'_MARKET_FARMER1">
+            <End Role="FARMER" EntitySet="FARMER" />
+            <End Role="SELLS_TO" EntitySet="SELLS_TO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FARMER_has_FARMERS'_MARKET_FARMERS'_MARKET1" Association="Self.fk_FARMER_has_FARMERS'_MARKET_FARMERS'_MARKET1">
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+            <End Role="SELLS_TO" EntitySet="SELLS_TO" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FARMER_has_GOOD_FARMER1" Association="Self.fk_FARMER_has_GOOD_FARMER1">
+            <End Role="FARMER" EntitySet="FARMER" />
+            <End Role="HARVESTS" EntitySet="HARVESTS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FARMER_has_GOOD_GOOD1" Association="Self.fk_FARMER_has_GOOD_GOOD1">
+            <End Role="GOOD" EntitySet="GOOD" />
+            <End Role="HARVESTS" EntitySet="HARVESTS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FARMERS'_MARKET_PROPIETOR1" Association="Self.fk_FARMERS'_MARKET_PROPIETOR1">
+            <End Role="PROPIETOR" EntitySet="PROPIETOR" />
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+          </AssociationSet>
+          <AssociationSet Name="fk_GOOD_DEPARTMENT1" Association="Self.fk_GOOD_DEPARTMENT1">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENT" />
+            <End Role="GOOD" EntitySet="GOOD" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SALES_ASSOCIATE_FARMERS'_MARKET1" Association="Self.fk_SALES_ASSOCIATE_FARMERS'_MARKET1">
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+            <End Role="SALES_ASSOCIATE" EntitySet="SALES_ASSOCIATE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SALES_ASSOCIATE_PROPIETOR1" Association="Self.fk_SALES_ASSOCIATE_PROPIETOR1">
+            <End Role="PROPIETOR" EntitySet="PROPIETOR" />
+            <End Role="SALES_ASSOCIATE" EntitySet="SALES_ASSOCIATE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_STOCK_has_FARMERS'_MARKET_FARMERS'_MARKET1" Association="Self.fk_STOCK_has_FARMERS'_MARKET_FARMERS'_MARKET1">
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+            <End Role="SELLS" EntitySet="SELLS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_STOCK_has_FARMERS'_MARKET_STOCK1" Association="Self.fk_STOCK_has_FARMERS'_MARKET_STOCK1">
+            <End Role="STOCK" EntitySet="STOCK" />
+            <End Role="SELLS" EntitySet="SELLS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db254614719227434d8463a494003807b5Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CASHIER">
+          <Key>
+            <PropertyRef Name="CashierId" />
+          </Key>
+          <Property Name="CashierId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfEmployment" Type="DateTime" />
+          <Property Name="HourlyPay" Type="Double" />
+          <Property Name="NumberOfYearsEmployed" Type="Int32" />
+          <Property Name="FMName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProprietorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FARMERS_MARKET" Relationship="Self.fk_CASHIER_FARMERS__MARKET1" FromRole="CASHIER" ToRole="FARMERS_MARKET" />
+          <NavigationProperty Name="PROPIETOR" Relationship="Self.fk_CASHIER_PROPIETOR1" FromRole="CASHIER" ToRole="PROPIETOR" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="Self.CHECKS_OUT" FromRole="CASHIER" ToRole="CUSTOMER" />
+        </EntityType>
+        <EntityType Name="CUSTODIAN">
+          <Key>
+            <PropertyRef Name="CustodianId" />
+          </Key>
+          <Property Name="CustodianId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfEmployment" Type="DateTime" />
+          <Property Name="HourlyPay" Type="Double" />
+          <Property Name="NumberOfYearsEmployed" Type="Int32" />
+          <Property Name="FMName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProprietorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FARMERS_MARKET" Relationship="Self.fk_CUSTODIAN_FARMERS__MARKET1" FromRole="CUSTODIAN" ToRole="FARMERS_MARKET" />
+          <NavigationProperty Name="PROPIETOR" Relationship="Self.fk_CUSTODIAN_PROPIETOR1" FromRole="CUSTODIAN" ToRole="PROPIETOR" />
+          <NavigationProperty Name="DEPARTMENTs" Relationship="Self.CLEANS" FromRole="CUSTODIAN" ToRole="DEPARTMENT" />
+        </EntityType>
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AccountBalance" Type="Int32" />
+          <NavigationProperty Name="STOCKs" Relationship="Self.BUYS" FromRole="CUSTOMER" ToRole="STOCK" />
+          <NavigationProperty Name="CASHIERs" Relationship="Self.CHECKS_OUT" FromRole="CUSTOMER" ToRole="CASHIER" />
+          <NavigationProperty Name="STOCKs1" Relationship="Self.RETURNS" FromRole="CUSTOMER" ToRole="STOCK" />
+          <NavigationProperty Name="FARMERS_MARKET" Relationship="Self.SHOPS_AT" FromRole="CUSTOMER" ToRole="FARMERS_MARKET" />
+        </EntityType>
+        <EntityType Name="DEPARTMENT">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="GOODs" Relationship="Self.fk_GOOD_DEPARTMENT1" FromRole="DEPARTMENT" ToRole="GOOD" />
+          <NavigationProperty Name="CUSTODIANs" Relationship="Self.CLEANS" FromRole="DEPARTMENT" ToRole="CUSTODIAN" />
+        </EntityType>
+        <EntityType Name="FARMER">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="GOODs" Relationship="Self.HARVESTS" FromRole="FARMER" ToRole="GOOD" />
+          <NavigationProperty Name="FARMERS_MARKET" Relationship="Self.SELLS_TO" FromRole="FARMER" ToRole="FARMERS_MARKET" />
+        </EntityType>
+        <EntityType Name="FARMERS_MARKET">
+          <Key>
+            <PropertyRef Name="FMName" />
+          </Key>
+          <Property Name="FMName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Hours" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="NumberOfSuppliers" Type="Int32" Nullable="false" />
+          <Property Name="ProprietorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CASHIERs" Relationship="Self.fk_CASHIER_FARMERS__MARKET1" FromRole="FARMERS_MARKET" ToRole="CASHIER" />
+          <NavigationProperty Name="CUSTODIANs" Relationship="Self.fk_CUSTODIAN_FARMERS__MARKET1" FromRole="FARMERS_MARKET" ToRole="CUSTODIAN" />
+          <NavigationProperty Name="PROPIETOR" Relationship="Self.fk_FARMERS__MARKET_PROPIETOR1" FromRole="FARMERS_MARKET" ToRole="PROPIETOR" />
+          <NavigationProperty Name="SALES_ASSOCIATE" Relationship="Self.fk_SALES_ASSOCIATE_FARMERS__MARKET1" FromRole="FARMERS_MARKET" ToRole="SALES_ASSOCIATE" />
+          <NavigationProperty Name="STOCKs" Relationship="Self.SELLS" FromRole="FARMERS_MARKET" ToRole="STOCK" />
+          <NavigationProperty Name="FARMERs" Relationship="Self.SELLS_TO" FromRole="FARMERS_MARKET" ToRole="FARMER" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="Self.SHOPS_AT" FromRole="FARMERS_MARKET" ToRole="CUSTOMER" />
+        </EntityType>
+        <EntityType Name="GOOD">
+          <Key>
+            <PropertyRef Name="GoodId" />
+          </Key>
+          <Property Name="GoodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DEPARTMENT" Relationship="Self.fk_GOOD_DEPARTMENT1" FromRole="GOOD" ToRole="DEPARTMENT" />
+          <NavigationProperty Name="FARMERs" Relationship="Self.HARVESTS" FromRole="GOOD" ToRole="FARMER" />
+        </EntityType>
+        <EntityType Name="PROPIETOR">
+          <Key>
+            <PropertyRef Name="ProprietorId" />
+          </Key>
+          <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProprietorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="CASHIERs" Relationship="Self.fk_CASHIER_PROPIETOR1" FromRole="PROPIETOR" ToRole="CASHIER" />
+          <NavigationProperty Name="CUSTODIANs" Relationship="Self.fk_CUSTODIAN_PROPIETOR1" FromRole="PROPIETOR" ToRole="CUSTODIAN" />
+          <NavigationProperty Name="FARMERS_MARKET" Relationship="Self.fk_FARMERS__MARKET_PROPIETOR1" FromRole="PROPIETOR" ToRole="FARMERS_MARKET" />
+          <NavigationProperty Name="SALES_ASSOCIATE" Relationship="Self.fk_SALES_ASSOCIATE_PROPIETOR1" FromRole="PROPIETOR" ToRole="SALES_ASSOCIATE" />
+        </EntityType>
+        <EntityType Name="SALES_ASSOCIATE">
+          <Key>
+            <PropertyRef Name="SalesId" />
+          </Key>
+          <Property Name="SalesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfEmployment" Type="DateTime" />
+          <Property Name="HourlyPay" Type="Double" />
+          <Property Name="NumberOfYearsEmployed" Type="Int32" />
+          <Property Name="FMName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProprietorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FARMERS_MARKET" Relationship="Self.fk_SALES_ASSOCIATE_FARMERS__MARKET1" FromRole="SALES_ASSOCIATE" ToRole="FARMERS_MARKET" />
+          <NavigationProperty Name="PROPIETOR" Relationship="Self.fk_SALES_ASSOCIATE_PROPIETOR1" FromRole="SALES_ASSOCIATE" ToRole="PROPIETOR" />
+        </EntityType>
+        <EntityType Name="STOCK">
+          <Key>
+            <PropertyRef Name="StockId" />
+          </Key>
+          <Property Name="StockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <NavigationProperty Name="CUSTOMERs" Relationship="Self.BUYS" FromRole="STOCK" ToRole="CUSTOMER" />
+          <NavigationProperty Name="CUSTOMERs1" Relationship="Self.RETURNS" FromRole="STOCK" ToRole="CUSTOMER" />
+          <NavigationProperty Name="FARMERS_MARKET" Relationship="Self.SELLS" FromRole="STOCK" ToRole="FARMERS_MARKET" />
+        </EntityType>
+        <Association Name="fk_CASHIER_FARMERS__MARKET1">
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="1" />
+          <End Role="CASHIER" Type="Self.CASHIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FARMERS_MARKET">
+              <PropertyRef Name="FMName" />
+            </Principal>
+            <Dependent Role="CASHIER">
+              <PropertyRef Name="FMName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CASHIER_PROPIETOR1">
+          <End Role="PROPIETOR" Type="Self.PROPIETOR" Multiplicity="1" />
+          <End Role="CASHIER" Type="Self.CASHIER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPIETOR">
+              <PropertyRef Name="ProprietorId" />
+            </Principal>
+            <Dependent Role="CASHIER">
+              <PropertyRef Name="ProprietorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTODIAN_FARMERS__MARKET1">
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="1" />
+          <End Role="CUSTODIAN" Type="Self.CUSTODIAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FARMERS_MARKET">
+              <PropertyRef Name="FMName" />
+            </Principal>
+            <Dependent Role="CUSTODIAN">
+              <PropertyRef Name="FMName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_CUSTODIAN_PROPIETOR1">
+          <End Role="PROPIETOR" Type="Self.PROPIETOR" Multiplicity="1" />
+          <End Role="CUSTODIAN" Type="Self.CUSTODIAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPIETOR">
+              <PropertyRef Name="ProprietorId" />
+            </Principal>
+            <Dependent Role="CUSTODIAN">
+              <PropertyRef Name="ProprietorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_GOOD_DEPARTMENT1">
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="1" />
+          <End Role="GOOD" Type="Self.GOOD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTMENT">
+              <PropertyRef Name="DepartmentId" />
+            </Principal>
+            <Dependent Role="GOOD">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_FARMERS__MARKET_PROPIETOR1">
+          <End Role="PROPIETOR" Type="Self.PROPIETOR" Multiplicity="1" />
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPIETOR">
+              <PropertyRef Name="ProprietorId" />
+            </Principal>
+            <Dependent Role="FARMERS_MARKET">
+              <PropertyRef Name="ProprietorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SALES_ASSOCIATE_FARMERS__MARKET1">
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="1" />
+          <End Role="SALES_ASSOCIATE" Type="Self.SALES_ASSOCIATE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FARMERS_MARKET">
+              <PropertyRef Name="FMName" />
+            </Principal>
+            <Dependent Role="SALES_ASSOCIATE">
+              <PropertyRef Name="FMName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SALES_ASSOCIATE_PROPIETOR1">
+          <End Role="PROPIETOR" Type="Self.PROPIETOR" Multiplicity="1" />
+          <End Role="SALES_ASSOCIATE" Type="Self.SALES_ASSOCIATE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPIETOR">
+              <PropertyRef Name="ProprietorId" />
+            </Principal>
+            <Dependent Role="SALES_ASSOCIATE">
+              <PropertyRef Name="ProprietorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BUYS">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <End Role="STOCK" Type="Self.STOCK" Multiplicity="*" />
+        </Association>
+        <Association Name="CHECKS_OUT">
+          <End Role="CASHIER" Type="Self.CASHIER" Multiplicity="*" />
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+        </Association>
+        <Association Name="CLEANS">
+          <End Role="CUSTODIAN" Type="Self.CUSTODIAN" Multiplicity="*" />
+          <End Role="DEPARTMENT" Type="Self.DEPARTMENT" Multiplicity="*" />
+        </Association>
+        <Association Name="HARVESTS">
+          <End Role="FARMER" Type="Self.FARMER" Multiplicity="*" />
+          <End Role="GOOD" Type="Self.GOOD" Multiplicity="*" />
+        </Association>
+        <Association Name="RETURNS">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <End Role="STOCK" Type="Self.STOCK" Multiplicity="*" />
+        </Association>
+        <Association Name="SELLS">
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="*" />
+          <End Role="STOCK" Type="Self.STOCK" Multiplicity="*" />
+        </Association>
+        <Association Name="SELLS_TO">
+          <End Role="FARMER" Type="Self.FARMER" Multiplicity="*" />
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="*" />
+        </Association>
+        <Association Name="SHOPS_AT">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="*" />
+          <End Role="FARMERS_MARKET" Type="Self.FARMERS_MARKET" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="db254614719227434d8463a494003807b5Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CASHIERs" EntityType="Self.CASHIER" />
+          <EntitySet Name="CUSTODIANs" EntityType="Self.CUSTODIAN" />
+          <EntitySet Name="CUSTOMERs" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="DEPARTMENTs" EntityType="Self.DEPARTMENT" />
+          <EntitySet Name="FARMERs" EntityType="Self.FARMER" />
+          <EntitySet Name="FARMERS_MARKET" EntityType="Self.FARMERS_MARKET" />
+          <EntitySet Name="GOODs" EntityType="Self.GOOD" />
+          <EntitySet Name="PROPIETORs" EntityType="Self.PROPIETOR" />
+          <EntitySet Name="SALES_ASSOCIATE" EntityType="Self.SALES_ASSOCIATE" />
+          <EntitySet Name="STOCKs" EntityType="Self.STOCK" />
+          <AssociationSet Name="fk_CASHIER_FARMERS__MARKET1" Association="Self.fk_CASHIER_FARMERS__MARKET1">
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+            <End Role="CASHIER" EntitySet="CASHIERs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CASHIER_PROPIETOR1" Association="Self.fk_CASHIER_PROPIETOR1">
+            <End Role="PROPIETOR" EntitySet="PROPIETORs" />
+            <End Role="CASHIER" EntitySet="CASHIERs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTODIAN_FARMERS__MARKET1" Association="Self.fk_CUSTODIAN_FARMERS__MARKET1">
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+            <End Role="CUSTODIAN" EntitySet="CUSTODIANs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_CUSTODIAN_PROPIETOR1" Association="Self.fk_CUSTODIAN_PROPIETOR1">
+            <End Role="PROPIETOR" EntitySet="PROPIETORs" />
+            <End Role="CUSTODIAN" EntitySet="CUSTODIANs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_GOOD_DEPARTMENT1" Association="Self.fk_GOOD_DEPARTMENT1">
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENTs" />
+            <End Role="GOOD" EntitySet="GOODs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_FARMERS__MARKET_PROPIETOR1" Association="Self.fk_FARMERS__MARKET_PROPIETOR1">
+            <End Role="PROPIETOR" EntitySet="PROPIETORs" />
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SALES_ASSOCIATE_FARMERS__MARKET1" Association="Self.fk_SALES_ASSOCIATE_FARMERS__MARKET1">
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+            <End Role="SALES_ASSOCIATE" EntitySet="SALES_ASSOCIATE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SALES_ASSOCIATE_PROPIETOR1" Association="Self.fk_SALES_ASSOCIATE_PROPIETOR1">
+            <End Role="PROPIETOR" EntitySet="PROPIETORs" />
+            <End Role="SALES_ASSOCIATE" EntitySet="SALES_ASSOCIATE" />
+          </AssociationSet>
+          <AssociationSet Name="BUYS" Association="Self.BUYS">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="STOCK" EntitySet="STOCKs" />
+          </AssociationSet>
+          <AssociationSet Name="CHECKS_OUT" Association="Self.CHECKS_OUT">
+            <End Role="CASHIER" EntitySet="CASHIERs" />
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+          </AssociationSet>
+          <AssociationSet Name="CLEANS" Association="Self.CLEANS">
+            <End Role="CUSTODIAN" EntitySet="CUSTODIANs" />
+            <End Role="DEPARTMENT" EntitySet="DEPARTMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="HARVESTS" Association="Self.HARVESTS">
+            <End Role="FARMER" EntitySet="FARMERs" />
+            <End Role="GOOD" EntitySet="GOODs" />
+          </AssociationSet>
+          <AssociationSet Name="RETURNS" Association="Self.RETURNS">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="STOCK" EntitySet="STOCKs" />
+          </AssociationSet>
+          <AssociationSet Name="SELLS" Association="Self.SELLS">
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+            <End Role="STOCK" EntitySet="STOCKs" />
+          </AssociationSet>
+          <AssociationSet Name="SELLS_TO" Association="Self.SELLS_TO">
+            <End Role="FARMER" EntitySet="FARMERs" />
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+          </AssociationSet>
+          <AssociationSet Name="SHOPS_AT" Association="Self.SHOPS_AT">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="FARMERS_MARKET" EntitySet="FARMERS_MARKET" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db254614719227434d8463a494003807b5ModelStoreContainer" CdmEntityContainer="db254614719227434d8463a494003807b5Entities">
+          <EntitySetMapping Name="CASHIERs">
+            <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.CASHIER">
+              <MappingFragment StoreEntitySet="CASHIER">
+                <ScalarProperty Name="CashierId" ColumnName="CashierId" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="DateOfEmployment" ColumnName="DateOfEmployment" />
+                <ScalarProperty Name="HourlyPay" ColumnName="HourlyPay" />
+                <ScalarProperty Name="NumberOfYearsEmployed" ColumnName="NumberOfYearsEmployed" />
+                <ScalarProperty Name="FMName" ColumnName="FMName" />
+                <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTODIANs">
+            <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.CUSTODIAN">
+              <MappingFragment StoreEntitySet="CUSTODIAN">
+                <ScalarProperty Name="CustodianId" ColumnName="CustodianId" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="DateOfEmployment" ColumnName="DateOfEmployment" />
+                <ScalarProperty Name="HourlyPay" ColumnName="HourlyPay" />
+                <ScalarProperty Name="NumberOfYearsEmployed" ColumnName="NumberOfYearsEmployed" />
+                <ScalarProperty Name="FMName" ColumnName="FMName" />
+                <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CUSTOMERs">
+            <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="AccountBalance" ColumnName="AccountBalance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPARTMENTs">
+            <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.DEPARTMENT">
+              <MappingFragment StoreEntitySet="DEPARTMENT">
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FARMERs">
+            <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.FARMER">
+              <MappingFragment StoreEntitySet="FARMER">
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FARMERS_MARKET">
+            <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.FARMERS_MARKET">
+              <MappingFragment StoreEntitySet="FARMERS_MARKET">
+                <ScalarProperty Name="FMName" ColumnName="FMName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="NumberOfSuppliers" ColumnName="NumberOfSuppliers" />
+                <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GOODs">
+            <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.GOOD">
+              <MappingFragment StoreEntitySet="GOOD">
+                <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROPIETORs">
+            <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.PROPIETOR">
+              <MappingFragment StoreEntitySet="PROPIETOR">
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SALES_ASSOCIATE">
+            <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.SALES_ASSOCIATE">
+              <MappingFragment StoreEntitySet="SALES_ASSOCIATE">
+                <ScalarProperty Name="SalesId" ColumnName="SalesId" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="DateOfEmployment" ColumnName="DateOfEmployment" />
+                <ScalarProperty Name="HourlyPay" ColumnName="HourlyPay" />
+                <ScalarProperty Name="NumberOfYearsEmployed" ColumnName="NumberOfYearsEmployed" />
+                <ScalarProperty Name="FMName" ColumnName="FMName" />
+                <ScalarProperty Name="ProprietorId" ColumnName="ProprietorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOCKs">
+            <EntityTypeMapping TypeName="db254614719227434d8463a494003807b5Model.STOCK">
+              <MappingFragment StoreEntitySet="STOCK">
+                <ScalarProperty Name="StockId" ColumnName="StockId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="BUYS" TypeName="db254614719227434d8463a494003807b5Model.BUYS" StoreEntitySet="BUYS">
+            <EndProperty Name="CUSTOMER">
+              <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+            </EndProperty>
+            <EndProperty Name="STOCK">
+              <ScalarProperty Name="StockId" ColumnName="StockId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="CHECKS_OUT" TypeName="db254614719227434d8463a494003807b5Model.CHECKS_OUT" StoreEntitySet="CHECKS_OUT">
+            <EndProperty Name="CASHIER">
+              <ScalarProperty Name="CashierId" ColumnName="CashierId" />
+            </EndProperty>
+            <EndProperty Name="CUSTOMER">
+              <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="CLEANS" TypeName="db254614719227434d8463a494003807b5Model.CLEANS" StoreEntitySet="CLEANS">
+            <EndProperty Name="CUSTODIAN">
+              <ScalarProperty Name="CustodianId" ColumnName="CustodianId" />
+            </EndProperty>
+            <EndProperty Name="DEPARTMENT">
+              <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="HARVESTS" TypeName="db254614719227434d8463a494003807b5Model.HARVESTS" StoreEntitySet="HARVESTS">
+            <EndProperty Name="FARMER">
+              <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+            </EndProperty>
+            <EndProperty Name="GOOD">
+              <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RETURNS" TypeName="db254614719227434d8463a494003807b5Model.RETURNS" StoreEntitySet="RETURNS">
+            <EndProperty Name="CUSTOMER">
+              <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+            </EndProperty>
+            <EndProperty Name="STOCK">
+              <ScalarProperty Name="StockId" ColumnName="StockId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SELLS" TypeName="db254614719227434d8463a494003807b5Model.SELLS" StoreEntitySet="SELLS">
+            <EndProperty Name="FARMERS_MARKET">
+              <ScalarProperty Name="FMName" ColumnName="FMName" />
+            </EndProperty>
+            <EndProperty Name="STOCK">
+              <ScalarProperty Name="StockId" ColumnName="StockId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SELLS_TO" TypeName="db254614719227434d8463a494003807b5Model.SELLS_TO" StoreEntitySet="SELLS_TO">
+            <EndProperty Name="FARMER">
+              <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+            </EndProperty>
+            <EndProperty Name="FARMERS_MARKET">
+              <ScalarProperty Name="FMName" ColumnName="FMName" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="SHOPS_AT" TypeName="db254614719227434d8463a494003807b5Model.SHOPS_AT" StoreEntitySet="SHOPS_AT">
+            <EndProperty Name="CUSTOMER">
+              <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+            </EndProperty>
+            <EndProperty Name="FARMERS_MARKET">
+              <ScalarProperty Name="FMName" ColumnName="FMName" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

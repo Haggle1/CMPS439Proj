@@ -1,0 +1,36 @@
+﻿@model MvcApplication2.PROPIETOR
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PROPIETOR</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProprietorId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProprietorId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id=Model.ProprietorId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

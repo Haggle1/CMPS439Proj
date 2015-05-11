@@ -1,0 +1,54 @@
+﻿@model MvcApplication2.FARMERS_MARKET
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>FARMERS_MARKET</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FMName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FMName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Hours)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hours)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumberOfSuppliers)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumberOfSuppliers)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PROPIETOR.FName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PROPIETOR.FName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

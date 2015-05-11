@@ -1,0 +1,68 @@
+﻿@model MvcApplication2.CUSTODIAN
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>CUSTODIAN</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateOfEmployment)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateOfEmployment)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HourlyPay)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HourlyPay)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumberOfYearsEmployed)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumberOfYearsEmployed)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FARMERS_MARKET.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FARMERS_MARKET.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PROPIETOR.FName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PROPIETOR.FName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

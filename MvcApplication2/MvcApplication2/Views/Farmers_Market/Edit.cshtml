@@ -1,0 +1,68 @@
+﻿@model MvcApplication2.FARMERS_MARKET
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>FARMERS_MARKET</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FMName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FMName)
+            @Html.ValidationMessageFor(model => model.FMName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Hours)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Hours)
+            @Html.ValidationMessageFor(model => model.Hours)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumberOfSuppliers)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumberOfSuppliers)
+            @Html.ValidationMessageFor(model => model.NumberOfSuppliers)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProprietorId, "PROPIETOR")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ProprietorId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ProprietorId)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
